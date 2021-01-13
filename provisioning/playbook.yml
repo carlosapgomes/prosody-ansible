@@ -7,7 +7,6 @@
     - role: nginx
     - role: geerlingguy.firewall
     - role: geerlingguy.security
-    - role: geerlingguy.postgresql
     - role: nginx
     - role: geerlingguy.certbot
                                               

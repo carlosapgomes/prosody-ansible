@@ -1,0 +1,50 @@
+# skedbackend defaults
+
+# common packages
+sys_packages: ["vim", "ufw", "lnav"]
+
+# geerlingguy.firewall vars
+firewall_state: started
+firewall_enabled_at_boot: true
+firewall_flush_rules_and_chains: false
+firewall_allowed_tcp_ports:
+    - "{{ ansible_port }}"
+    - "80"
+    - "443"
+    - "5222"
+    - "5269"
+    - "5280"
+
+firewall_enable_ipv6: true
+
+# geerlingguy.security vars
+security_ssh_port: "{{ ansible_port }}"
+security_ssh_password_authentication: "no"
+security_ssh_permit_root_login: "no"
+security_ssh_usedns: "no"
+security_ssh_permit_empty_password: "no"
+security_ssh_challenge_response_auth: "no"
+security_ssh_gss_api_authentication: "no"
+security_ssh_x11_forwarding: "no"
+security_sshd_state: started
+security_ssh_restart_handler_state: restarted
+security_autoupdate_enabled: true
+security_autoupdate_reboot: true
+security_autoupdate_reboot_time: "03:00"
+security_autoupdate_mail_to: "{{ admin_email }}"
+security_autoupdate_mail_on_error: true
+security_fail2ban_enabled: true
+
+# lets encrypt role configuration
+certbot_create_if_missing: true
+certbot_create_method: standalone
+certbot_auto_renew_user: "{{ ansible_user }}"
+certbot_auto_renew_minute: "00"
+certbot_auto_renew_hour: "3"
+certbot_admin_email: "{{ admin_email }}"
+certbot_certs:
+  - domains:
+      - "{{ webserver_name }}"
+certbot_create_standalone_stop_services:
+    - nginx
+
