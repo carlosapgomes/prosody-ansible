@@ -1,0 +1,10 @@
+all:
+  hosts:
+    vascularhgrs:
+      ansible_host: host.ip.address
+      ansible_port: 22 # ssh port number 
+      ansible_user: root
+      ansible_ssh_private_key_file: ~/.ssh/path_to_ssh_private_key
+      pg_passwd: "postgres_secret_password"
+      inventory_hostname: public.domain.server.name
+
