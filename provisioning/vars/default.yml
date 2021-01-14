@@ -1,21 +1,7 @@
 # skedbackend defaults
 
 # common packages
-sys_packages: ["vim", "ufw", "lnav"]
-
-# geerlingguy.firewall vars
-firewall_state: started
-firewall_enabled_at_boot: true
-firewall_flush_rules_and_chains: false
-firewall_allowed_tcp_ports:
-    - "{{ ansible_port }}"
-    - "80"
-    - "443"
-    - "5222"
-    - "5269"
-    - "5280"
-
-firewall_enable_ipv6: true
+sys_packages: ["vim", "ufw", "lnav", "sudo"]
 
 # geerlingguy.security vars
 security_ssh_port: "{{ ansible_port }}"
