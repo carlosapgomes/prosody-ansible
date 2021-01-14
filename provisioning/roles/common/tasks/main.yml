@@ -1,0 +1,54 @@
+---
+# tasks file for common
+- name: Set timezone
+  timezone:
+    name: "{{ sys_timezone }}"
+
+- name: Install Prerequisites
+  apt: name=aptitude update_cache=yes state=latest force_apt_get=yes
+
+# Install Packages
+- name: Update apt
+  apt: update_cache=yes
+
+- name: Install required system packages
+  apt: name={{ sys_packages }} state=latest
+
+# UFW Setup
+- name: UFW - Allow SSH connections
+  ufw:
+    rule: allow
+    port: "{{ ansible_port }}"
+    proto: tcp
+
+- name: Open port 80
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 80
+
+- name: Open port 443
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 443
+
+- name: Open port 5222
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 5222
+
+- name: Open port 5269
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 5269
+
+- name: Open port 5280
+  ufw:
+    rule: allow
+    proto: tcp
+    port: 5280
+
+
