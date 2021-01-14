@@ -1,14 +1,14 @@
 ---
 - hosts: all
+  become: true
   vars_files: 
     - vars/default.yml
   
   roles:
-    - role: nginx
-    - role: geerlingguy.firewall
+    - role: common
     - role: geerlingguy.security
-    - role: nginx
-    - role: geerlingguy.certbot
+    #- role: nginx
+    #- role: geerlingguy.certbot
                                               
 
 
