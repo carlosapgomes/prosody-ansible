@@ -1,0 +1,15 @@
+---
+# tasks file for prosody
+- name: Install package
+  package:
+    name: prosody
+    state: latest
+
+- name: Add configuration file
+  template:
+   src: etc/prosody/prosody.cfg.lua.j2
+   dest: /etc/prosody/prosody.cfg.lua
+  notify: Reload prosody
+
+
+
