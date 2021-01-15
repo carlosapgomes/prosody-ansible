@@ -1,0 +1,29 @@
+---
+# tasks file for nginx
+- name: Install package
+  package:
+    name: nginx
+    state: latest
+
+- name: Add base NGINX configuration file
+  copy: 
+    src: "etc/nginx/{{ item }}"
+    dest: /etc/nginx
+    owner: root
+    group: root
+    mode: 0644
+  with_items:
+    - nginx.conf
+    - dhparam
+  notify: Reload NGINX
+
+- name: Add server block
+  template:
+   src: etc/nginx/conf.d/site.conf.j2
+   dest: "/etc/nginx/conf.d/{{webserver_name}}.conf"
+   owner: root
+   group: root
+   mode: 0644
+  notify: Reload NGINX
+
+
