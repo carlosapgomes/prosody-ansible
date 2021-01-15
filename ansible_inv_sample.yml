@@ -6,4 +6,5 @@ all:
       ansible_user: root
       ansible_ssh_private_key_file: ~/.ssh/path_to_ssh_private_key
       inventory_hostname: public.domain.server.name
+      prosody_admin: admin_account_name
 
