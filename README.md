@@ -74,6 +74,16 @@ In that case, try this:
 
 `TXT Record _xmppconnect _xmpp-client-xbosh=http://chat.domain.name:5280/http-bind`
 
+## Create an ansible inventory file
+
+Check the `ansible_inv_sample.yml` file and provide the required variables.
+
+## Run the plabook
+
+From the current folder run:
+
+`ansible-playbook -i ansible_inv.yml provisioning/playbook.yml`
+
 ## Resources:
 
 [DNS Config](https://youtu.be/-0M0NeZ_cU4)
