@@ -79,3 +79,5 @@ In that case, try this:
 [DNS Config](https://youtu.be/-0M0NeZ_cU4)
 
 [How to Set Up Prosody XMPP Server on Ubuntu 20.04](https://www.linuxbabe.com/ubuntu/install-configure-prosody-xmpp-server-ubuntu-20-04)
+
+[dank-selfhosted](https://github.com/cullum/dank-selfhosted)
