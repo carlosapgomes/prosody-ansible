@@ -1,8 +1,3 @@
--- Prosody Example Configuration File
---
--- Information on configuring Prosody can be found on our
--- website at https://prosody.im/doc/configure
---
 -- Tip: You can check that the syntax of this file is correct
 -- when you have finished by running this command:
 --     prosodyctl check config
@@ -10,12 +5,8 @@
 -- they are, otherwise it will keep quiet.
 
 ---------- Server-wide settings ----------
--- Settings in this section apply to the whole server and are the default settings
--- for any virtual hosts
-
 -- This is a (by default, empty) list of accounts that are admins
 -- for the server. Note that you must create the accounts separately
--- (see https://prosody.im/doc/creating_accounts for info)
 -- Example: admins = { "user1@example.com", "user2@example.net" }
 admins = { "{{ prosody_admin }}"}
 
@@ -116,7 +107,7 @@ s2s_require_encryption = true
 
 -- Force certificate authentication for server-to-server connections?
 
-s2s_secure_auth = false
+s2s_secure_auth = true
 
 -- Some servers have invalid or self-signed certificates. You can list
 -- remote domains here that will not be required to authenticate using
@@ -189,7 +180,8 @@ log = {
 certificates = "certs"
 
 -- HTTPS currently only supports a single certificate, specify it here:
---https_certificate = "/etc/prosody/certs/localhost.crt"
+https_certificate = "/etc/prosody/certs/{{ domain_name }}.crt"                     
+https_key = "/etc/prosody/certs/{{ domain_name }}.key"   
 
 ----------- Virtual hosts -----------
 -- You need to add a VirtualHost entry for each domain you wish Prosody to serve.
@@ -215,6 +207,8 @@ VirtualHost "{{ domain_name }}"
 
 ---Set up a MUC (multi-user chat) room server on conference.example.com:
 --Component "conference.example.com" "muc"
+Component "groups.{{ domain_name }}" "muc"
+restrict_room_creation = "local"
 --- Store MUC messages in an archive and allow users to access it
 --modules_enabled = { "muc_mam" }
 
