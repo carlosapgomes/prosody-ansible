@@ -16,6 +16,7 @@
 
 # UFW Setup
 - name: Enable UFW
+  ufw:
     state: enabled
     policy: deny
 
