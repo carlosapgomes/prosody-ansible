@@ -30,7 +30,7 @@ certbot_auto_renew_hour: "3"
 certbot_admin_email: "{{ admin_email }}"
 certbot_certs:
   - domains:
-      - "{{ webserver_name }}"
+      - "{{ domain_name }}"
 certbot_create_standalone_stop_services:
     - nginx
 
