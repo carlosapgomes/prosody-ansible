@@ -15,6 +15,10 @@
   apt: name={{ sys_packages }} state=latest
 
 # UFW Setup
+- name: Enable UFW
+    state: enabled
+    policy: deny
+
 - name: UFW - Allow SSH connections
   ufw:
     rule: allow
