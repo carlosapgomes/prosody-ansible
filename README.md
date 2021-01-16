@@ -81,3 +81,11 @@ In that case, try this:
 [How to Set Up Prosody XMPP Server on Ubuntu 20.04](https://www.linuxbabe.com/ubuntu/install-configure-prosody-xmpp-server-ubuntu-20-04)
 
 [dank-selfhosted](https://github.com/cullum/dank-selfhosted)
+
+[Prosody Server Setup 0.10](https://www.cyberpunk.rs/prosody-server-setup-0-10-xmpp)
+
+[Archlinux Prosody](https://wiki.archlinux.org/index.php/Prosody)
+
+[The Practical Administrator](https://practical-admin.com/blog/private-chat-using-prosody/)
+
+[30-minute Practical Linux Project: XMPP Chat Server Setup, Start to Finish](https://www.youtube.com/watch?v=-0M0NeZ_cU4)
