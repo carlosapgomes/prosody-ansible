@@ -7,8 +7,9 @@
   roles:
     - role: common
     - role: geerlingguy.security
-    #- role: nginx
-    #- role: geerlingguy.certbot
+    - role: nginx
+    - role: geerlingguy.certbot
+    - role: prosody
                                               
 
 
