@@ -5,11 +5,23 @@
     name: prosody
     state: latest
 
+#- name: Import letsencrypt certs
+  #shell: "sudo prosodyctl --root cert import /etc/letsencrypt/live"
+
+#- name: Install ACL
+  #package:
+    #name: acl
+    #state: latest
+
+#- name: Give Prosody access to letsencrypt certs
+  #shell: "sudo setfacl -R -m u:prosody:rx /etc/letsencrypt/"
+
 - name: Add configuration file
   template:
    src: etc/prosody/prosody.cfg.lua.j2
    dest: /etc/prosody/prosody.cfg.lua
   notify: Reload prosody
 
-
+- name: Create Prosody Admin Account
+  shell: "sudo prosodyctl register {{ prosody_admin }} {{ domain_name }} {{ prosody_admin_pw }} "
 
