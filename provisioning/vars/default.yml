@@ -1,5 +1,3 @@
-# skedbackend defaults
-
 # common packages
 sys_packages: ["vim", "ufw", "lnav", "sudo"]
 
