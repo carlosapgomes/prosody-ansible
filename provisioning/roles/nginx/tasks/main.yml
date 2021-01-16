@@ -5,6 +5,13 @@
     name: nginx
     state: latest
 
+- name: create prosody www folder 
+  file:
+    path: "/var/www/prosody"
+    state: directory
+    owner: www-data 
+    group: www-data
+
 - name: Add base NGINX configuration file
   copy: 
     src: "etc/nginx/{{ item }}"
@@ -20,7 +27,7 @@
 - name: Add server block
   template:
    src: etc/nginx/conf.d/site.conf.j2
-   dest: "/etc/nginx/conf.d/{{webserver_name}}.conf"
+   dest: "/etc/nginx/conf.d/{{ domain_name }}.conf"
    owner: root
    group: root
    mode: 0644
